@@ -1,5 +1,5 @@
 import {useRef, useState} from "react";
-import {Form} from "react-bootstrap";
+import {Alert, Form} from "react-bootstrap";
 
 const BMI = () => {
     const [result, setResult] = useState(undefined);
@@ -73,7 +73,7 @@ function BMIShow(props) {
             return "yellow";
         }
         if (bmi > 18.5) {
-            return "lightgreen";
+            return "green";
         }
         if (bmi > 15) {
             return "yellow";
@@ -83,9 +83,10 @@ function BMIShow(props) {
 
     return (
         <>
-            <div>Dein BMI ist <div style={style}>{displayDMI}</div>
-            </div>
-            <progress value={progressFromBMI(props.bmi)}>test</progress>
+            <Alert variant={"success"}>Dein BMI ist <div style={style}>{displayDMI}</div>
+                <br/>
+                <progress value={progressFromBMI(props.bmi)}>test</progress>
+            </Alert>
         </>
     )
 }

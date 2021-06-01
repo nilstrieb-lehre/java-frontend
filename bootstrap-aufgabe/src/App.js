@@ -10,10 +10,3 @@ function App() {
 }
 
 export default App;
-
-
-function bg(color) {
-    return {
-        backgroundColor: color
-    };
-}
