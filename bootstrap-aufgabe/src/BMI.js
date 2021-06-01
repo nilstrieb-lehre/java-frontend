@@ -1,4 +1,5 @@
 import {useRef, useState} from "react";
+import {Form} from "react-bootstrap";
 
 const BMI = () => {
     const [result, setResult] = useState(undefined);
@@ -18,31 +19,34 @@ const BMI = () => {
     }
 
     return (
-        <>
+        <div style={{backgroundColor: "white"}}>
             <h2>BMI-Berechner</h2>
-            <div onChange={calculateHandler} className="inputs">
-                <div>Geschlecht</div>
-                <div>
-                    <input onClick={() => setIsMale(true)} id="gender-man" type="radio" name="gender"/>
-                    <label htmlFor="gender-man">Mann</label>
-                    <input onClick={() => setIsMale(false)} id="gender-women" type="radio" name="gender"/>
-                    <label htmlFor="gender-women">Frau</label>
-                </div>
-                <br/>
-                <div>Alter</div>
-                <input onChange={e => setAge(e.target.value)} type="range"/>
-                <div>{age}</div>
-                <label htmlFor={weightField}>Ihr Gewicht (kg):</label>
-                <input type="text" ref={weightField}/>
-                <div>(kg)</div>
-                <label htmlFor={heightField}>Ihre Körpergrösse (cm):</label>
-                <input ref={heightField}/>
-                <div>(cm)</div>
-                <br/>
-                <button onClick={calculateHandler}>Berechnen</button>
+            <div onChange={calculateHandler}>
+                <Form>
+                    <Form.Group controlId="genderGroup">
+                        <Form.Label>Geschlecht</Form.Label>
+                        <Form.Check onClick={() => setIsMale(true)} type="radio" label="Mann" name="gender"/>
+                        <Form.Check onClick={() => setIsMale(false)} type="radio" label="Frau" name="gender"/>
+                    </Form.Group>
+                    <Form.Group controlId="ageGroup">
+                        <Form.Label>Alter</Form.Label>
+                        <Form.Control onChange={e => setAge(e.target.value)} type="range"/>
+                        <div>{age}</div>
+                    </Form.Group>
+                    <Form.Group controlId="weightGroup">
+                        <Form.Label>Ihr Gewicht (kg):</Form.Label>
+                        <Form.Control ref={weightField} type="text"/>
+                    </Form.Group>
+                    <Form.Group controlId="heightGroup">
+                        <Form.Label>Ihre Körpergrösse (cm):</Form.Label>
+                        <Form.Control ref={heightField} type="text"/>
+                    </Form.Group>
+                </Form>
             </div>
-            {result && <BMIShow bmi={result} isMale={isMale} age={age}/>}
-        </>
+            {
+                result && <BMIShow bmi={result} isMale={isMale} age={age}/>
+            }
+        </div>
     )
 }
 
