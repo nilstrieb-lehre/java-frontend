@@ -58,11 +58,11 @@ const Game = () => {
                     <p>
                         {winner ? "Winner: " + winner : "Next Player: " + (xIsNext ? "X" : "O")}
                     </p>
+                    <button onClick={restart}>Restart</button>
                     <p>
                         {oldBoards.map((_, i) => <button style={buttonStyle} onClick={_ => revert(i)}>Go back to
                             round {i}</button>)}
                     </p>
-                    <button onClick={restart}>Restart</button>
                 </div>
             </div>
         </>
