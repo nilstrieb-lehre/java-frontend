@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Post from "./elements/Post";
+import BMI from "./elements/BMI";
+import Radio from "./elements/RadioButton";
+import Checkbox from "./elements/Checkbox";
+import Lists from "./elements/Lists";
 
-function App() {
-  return (
+
+const App = () =>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="App-header">
+            <Lists/>
+            <br/>
+            <Checkbox/>
+            <br/>
+            <Radio/>
+            <br/>
+            <Post/>
+            <br/>
+            <BMI/>
+        </div>
     </div>
-  );
-}
+
 
 export default App;
