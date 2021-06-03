@@ -18,19 +18,23 @@ const ProgrammingLangList = () => {
     const moveRight = () => {
         if (leftLangs[leftActive]) {
             setRightLangs([...rightLangs, leftLangs[leftActive]]);
-            setLeftLangs([...leftLangs.filter((_, i) => i !== leftActive)]);
+            deleteLeft();
         }
     };
     const moveLeft = () => {
         if (rightLangs[rightActive]) {
             setLeftLangs([...leftLangs, rightLangs[rightActive]]);
-            setRightLangs([...rightLangs.filter((_, i) => i !== rightActive)]);
+            deleteRight();
         }
     };
     const moveAllLeft = () => {
         setLeftLangs([...leftLangs, ...rightLangs]);
         setRightLangs([]);
     };
+
+    const deleteLeft = () => setLeftLangs([...leftLangs.filter((_, i) => i !== leftActive)]);
+    const deleteRight = () => setRightLangs([...rightLangs.filter((_, i) => i !== rightActive)]);
+
 
     return (
         <Container>
@@ -50,6 +54,8 @@ const ProgrammingLangList = () => {
                         <Row><Button onClick={moveRight} variant={"secondary"}>&gt;</Button></Row>
                         <Row><Button onClick={moveLeft} variant={"secondary"}>&lt;</Button></Row>
                         <Row><Button onClick={moveAllLeft} variant={"secondary"}>&lt;&lt;</Button></Row>
+                        <Row><Button onClick={deleteLeft} variant={"danger"}>L</Button></Row>
+                        <Row><Button onClick={deleteRight} variant={"danger"}>R</Button></Row>
                     </Container>
                 </Col>
                 <Col>
