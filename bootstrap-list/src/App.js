@@ -1,9 +1,11 @@
-import ProgrammingLangList from "./ProgrammingLangList";
+import TriviaGame from "./fetch/TriviaGame";
 
 function App() {
 
     return (
-        <ProgrammingLangList/>
+        // <ProgrammingLangList/>
+        //<Rhymes/>
+        <TriviaGame/>
     );
 }
 
