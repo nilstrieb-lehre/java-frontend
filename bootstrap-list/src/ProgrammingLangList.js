@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, ListGroup, Row} from "react-bootstrap";
+import languages from "../src/langs.json";
+
 
 const ProgrammingLangList = () => {
 
-    const [leftLangs, setLeftLangs] = useState(["Algol 58", "Java", "Haskell", "R", "Coffeescript",
-        "Python", "Elixir", "C#", "LISP", "Clojure", "Scala", "Kotlin", "Groovy", "Julia"]);
-    const [rightLangs, setRightLangs] = useState(["VB", "PHP", "Racket", "TypeScript", "C", "Rust",
-        "Go", "APL", "GRSBPL", "C++", "Ruby", "Erlang", "F#", "Javascript"]);
+    const [leftLangs, setLeftLangs] = useState([]);
+    useEffect(() => {
+        setLeftLangs(languages)
+    }, []);
+    const [rightLangs, setRightLangs] = useState([]);
 
     const [leftActive, setLeftActive] = useState(null);
     const [rightActive, setRightActive] = useState(null);
@@ -44,7 +47,7 @@ const ProgrammingLangList = () => {
                     <ListGroup>
                         {leftLangs.map((item, i) =>
                             <ListGroup.Item onClick={() => setLeftActive(i)} active={i === leftActive}
-                                            key={i}>{item}</ListGroup.Item>
+                                            key={item.name}><Language {...item}/></ListGroup.Item>
                         )}
                     </ListGroup>
                 </Col>
@@ -62,14 +65,26 @@ const ProgrammingLangList = () => {
                     <ListGroup>
                         {rightLangs.map((item, i) =>
                             <ListGroup.Item onClick={() => setRightActive(i)} active={i === rightActive}
-                                            key={i}>{item}</ListGroup.Item>
+                                            key={item.name}><Language {...item}/></ListGroup.Item>
                         )}
                     </ListGroup>
                 </Col>
             </Row>
         </Container>
     )
-        ;
 };
+
+const Language = lang => {
+    return (
+        <div>
+            <b>{lang.name}</b>
+            <div style={{fontSize: 12}}>
+                {lang.year}
+                <br/>
+                {lang.paradigm}
+            </div>
+        </div>
+    )
+}
 
 export default ProgrammingLangList;
