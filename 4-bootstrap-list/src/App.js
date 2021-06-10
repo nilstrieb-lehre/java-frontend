@@ -1,13 +1,9 @@
-import Sbb from "./fetch/SBB";
+import ProgrammingLangList from "./list/ProgrammingLangList";
 
 function App() {
     return (
         <div>
-            {/*<ProgrammingLangList/>*/}
-            {/*<Rhymes/>*/}
-            {/*<TriviaGame/>*/}
-            {/*<Card/>*/}
-            <Sbb/>
+            <ProgrammingLangList/>
         </div>
     )
 }
