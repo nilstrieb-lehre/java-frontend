@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Alert, Button, Container, Form, Row} from "react-bootstrap";
+import {Alert, Button, Container, Form, ListGroup, Row} from "react-bootstrap";
 
 const TriviaGame = () => {
     const [points, setPoints] = useState(0);
@@ -118,11 +118,10 @@ const TriviaQuestion = props => {
             <h3>{props.question}</h3>
             <div>
                 {props.answers.map((answer, i) =>
-                    <div key={i}>
-                        <Button style={{margin: 2}} onClick={props.handler(i === props.correctIndex)}
-                                variant="secondary">{answer}</Button>
-                        <br/>
-                    </div>
+                    <ListGroup key={i}>
+                        <ListGroup.Item variant={"primary"}
+                                        onClick={props.handler(i === props.correctIndex)}>{answer}</ListGroup.Item>
+                    </ListGroup>
                 )}
             </div>
             <div>Category: {props.category}</div>

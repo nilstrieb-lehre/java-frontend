@@ -1,12 +1,14 @@
-import TriviaGame from "./fetch/TriviaGame";
+import Card from "./fetch/Card";
 
 function App() {
-
     return (
-        // <ProgrammingLangList/>
-        //<Rhymes/>
-        <TriviaGame/>
-    );
+        <div>
+            {/*<ProgrammingLangList/>*/}
+            {/*<Rhymes/>*/}
+            {/*<TriviaGame/>*/}
+            <Card/>
+        </div>
+    )
 }
 
 export default App;
