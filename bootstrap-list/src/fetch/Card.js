@@ -15,7 +15,6 @@ const Card = () => {
         }
         , []);
 
-
     const drawCard = () => {
         if (remaining !== 0) {
             fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
@@ -57,16 +56,11 @@ const Cards = props => {
     )
 }
 
-const valueMap = {
-    "ACE": 1,
-    "JACK": 11,
-    "QUEEN": 12,
-    "KING": 13
-}
+const values = ['ACE', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'JACK', 'QUEEN', 'KING'];
 
-function cardComparator({value: a}, {value: b}) {
-    const aVal = valueMap[a] || a;
-    const bVal = valueMap[b] || b;
+function cardComparator(a, b) {
+    const aVal = values.indexOf(a.value);
+    const bVal = values.indexOf(b.value);
 
     return aVal - bVal;
 }

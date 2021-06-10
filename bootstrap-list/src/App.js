@@ -1,4 +1,4 @@
-import Card from "./fetch/Card";
+import Sbb from "./fetch/SBB";
 
 function App() {
     return (
@@ -6,7 +6,8 @@ function App() {
             {/*<ProgrammingLangList/>*/}
             {/*<Rhymes/>*/}
             {/*<TriviaGame/>*/}
-            <Card/>
+            {/*<Card/>*/}
+            <Sbb/>
         </div>
     )
 }
