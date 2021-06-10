@@ -5,7 +5,7 @@ import PlayerAPI from './API'
 const flex = {
     display: "flex",
     justifyContent: "center"
-}
+};
 
 const Football = () => {
     return (
@@ -34,7 +34,7 @@ const Roster = () => {
             </ul>
         </div>
     )
-}
+};
 
 const Player = () => {
     const {id} = useParams();
@@ -55,6 +55,6 @@ const Player = () => {
             }
         </div>
     )
-}
+};
 
 export default Football;
