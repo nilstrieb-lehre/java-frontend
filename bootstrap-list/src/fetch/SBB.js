@@ -1,9 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Alert, Button, Form, ListGroup} from "react-bootstrap";
+import StationBoard from "./StationBoard";
 
 const Sbb = () => {
     const [connections, setConnections] = useState(null);
     const [error, setError] = useState(false);
+    const [from, setFrom] = useState("");
 
 
     const toInput = useRef(null);
@@ -14,7 +16,7 @@ const Sbb = () => {
             fetch(`http://transport.opendata.ch/v1/locations?x=${pos.coords.latitude}&y=${pos.coords.longitude}&type=station`)
                 .then(response => response.json())
                 .then(data => {
-                    if (data.stations) {
+                    if (data.sytations) {
                         fromInput.current.value = data.stations.filter(s => s.id)[0].name;
                     }
                     setError(false);
@@ -30,6 +32,7 @@ const Sbb = () => {
             .then(response => response.json())
             .then(data => {
                 setConnections(data.connections);
+                setFrom(from);
                 setError(false);
             })
             .catch(() => setError(true))
@@ -48,7 +51,12 @@ const Sbb = () => {
             <br/>
             <Button onClick={fetchConnections}>Suchen</Button>
             <br/>
-            {connections && <Connections connections={connections}/>}
+            {connections && <>
+                <Connections connections={connections}/>
+                <br/>
+                <br/>
+                <StationBoard from={from}/>
+            </>}
             {error && <Alert variant="danger">Es ist ein Fehler aufgetreten. Versuche es erneut</Alert>}
         </div>
     );
