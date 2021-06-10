@@ -7,7 +7,7 @@ const Card = () => {
     const [error, setError] = useState(false);
     const [cards, setCards] = useState([]);
 
-    useEffect(async () => {
+    useEffect(() => {
             fetch("https://deckofcardsapi.com/api/deck/new/shuffle")
                 .then(response => response.json())
                 .then(data => setDeckId(data.deck_id))
