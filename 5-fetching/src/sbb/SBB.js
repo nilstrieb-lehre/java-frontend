@@ -205,7 +205,8 @@ function formatSeconds(seconds) {
 
 export
 {
-    Connections
+    Connections,
+    formatTime
 }
     ;
 export default Sbb;

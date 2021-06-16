@@ -1,4 +1,5 @@
 import Sbb from "./sbb/SBB";
+import "./App.css"
 
 function App() {
     return (
