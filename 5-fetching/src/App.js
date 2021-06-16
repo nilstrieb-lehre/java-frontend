@@ -1,29 +1,25 @@
-import Card from "./Card";
-import Rhymes from "./Rhymes";
-import Sbb from "./SBB";
-import TriviaGame from "./TriviaGame";
-import StationBoard from "./StationBoard";
+import Sbb from "./sbb/SBB";
 
 function App() {
     return (
         <div>
-            <Card/>
-            <br/>
-            <br/>
-            <br/>
-            <Rhymes/>
-            <br/>
-            <br/>
-            <br/>
+            {/*<Card/>*/}
+            {/*<br/>*/}
+            {/*<br/>*/}
+            {/*<br/>*/}
+            {/*<Rhymes/>*/}
+            {/*<br/>*/}
+            {/*<br/>*/}
+            {/*<br/>*/}
             <Sbb/>
-            <br/>
-            <br/>
-            <br/>
-            <TriviaGame/>
-            <br/>
-            <br/>
-            <br/>
-            <StationBoard/>
+            {/*<br/>*/}
+            {/*<br/>*/}
+            {/*<br/>*/}
+            {/*<TriviaGame/>*/}
+            {/*<br/>*/}
+            {/*<br/>*/}
+            {/*<br/>*/}
+            {/*<StationBoard/>*/}
         </div>
     );
 }
