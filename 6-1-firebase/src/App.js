@@ -67,54 +67,53 @@ const HighScore = (props) => {
 }
 
 const LogIn = (props) => {
-        const mailRef = useRef(null);
-        const passwordRef = useRef(null);
+    const mailRef = useRef(null);
+    const passwordRef = useRef(null);
 
-        const login = () => {
-            const mail = mailRef.current.value;
-            const password = mailRef.current.value;
-            if (!mail || !password) {
-                return;
-            }
-            firebase.auth()
-                .signInWithEmailAndPassword(mail, password)
-                .then(props.success)
-                .catch(() => {
-                    console.error("Could not create user");
-                    props.error("Could not create user");
-                });
+    const login = () => {
+        const mail = mailRef.current.value;
+        const password = mailRef.current.value;
+        if (!mail || !password) {
+            return;
         }
-
-        const signup = () => {
-            const mail = mailRef.current.value;
-            const password = mailRef.current.value;
-            if (!mail || !password) {
-                return;
-            }
-            firebase.auth()
-                .createUserWithEmailAndPassword(mail, password)
-                .then(props.success)
-                .catch(() => {
-                    props.error("Could not create user");
-                    console.error("Could not create user");
-                });
-        }
-
-        return (
-            <div>
-                <h2>Sign In</h2>
-                <Form.Group>
-                    <Form.Label>E-Mail</Form.Label>
-                    <Form.Control ref={mailRef}/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" ref={passwordRef}/>
-                </Form.Group>
-                <Button onClick={login}>Log In</Button>
-                <Button variant="secondary" onClick={signup}>Sign Up</Button>
-            </div>
-        );
+        firebase.auth()
+            .signInWithEmailAndPassword(mail, password)
+            .then(props.success)
+            .catch(() => {
+                console.error("Could not create user");
+                props.error("Could not create user");
+            });
     }
-;
+
+    const signup = () => {
+        const mail = mailRef.current.value;
+        const password = mailRef.current.value;
+        if (!mail || !password) {
+            return;
+        }
+        firebase.auth()
+            .createUserWithEmailAndPassword(mail, password)
+            .then(props.success)
+            .catch(() => {
+                props.error("Could not create user");
+                console.error("Could not create user");
+            });
+    }
+
+    return (
+        <div>
+            <h2>Sign In</h2>
+            <Form.Group>
+                <Form.Label>E-Mail</Form.Label>
+                <Form.Control ref={mailRef}/>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef}/>
+            </Form.Group>
+            <Button onClick={login}>Log In</Button>
+            <Button variant="secondary" onClick={signup}>Sign Up</Button>
+        </div>
+    );
+};
 export default App;

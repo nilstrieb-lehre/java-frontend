@@ -1,18 +1,33 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Alert, Button, Form, ListGroup} from "react-bootstrap";
+import firebase from "firebase";
 import StationBoard from "./StationBoard";
-import {NavLink, Route, Switch} from "react-router-dom";
+import {NavLink, Redirect, Route, Switch} from "react-router-dom";
 import useLocalStation from "./useLocalStation";
 import TakeMeHome from "./TakeMeHome";
-import Settings from "./Settings";
+import Settings from "./Settings"
+import {firebase as firebaseConfig} from "./config.json";
+import SbbLogin from "./SbbLogin";
+
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 const Sbb = () => {
     const [error, setError] = useState(false);
-
+    const [showingSuccess, setShowingSuccess] = useState(false);
     const [fromToInput, setFromToInput] = useState(null);
+    const [user, setUser] = useState(null);
+
 
     const toInput = useRef(null);
     const fromInput = useRef(null);
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(user => {
+            console.log(`auth state changed to ${user.uid}`)
+            setUser(user);
+        })
+    }, [])
 
     const localStation = useLocalStation();
     useEffect(() => {
@@ -21,11 +36,25 @@ const Sbb = () => {
         }
     }, [localStation])
 
+    const successHandler = () => {
+        setShowingSuccess(true);
+        setTimeout(() => setShowingSuccess(false), 2000);
+    }
 
     const fetchConnections = () => {
         const from = fromInput.current.value;
         const to = toInput.current.value;
         setFromToInput({from, to});
+        firebase.database().ref(`users/${user.uid}`).get()
+            .then(data => {
+                firebase.database().ref(`users/${user.uid}`).set({
+                    lastSbbSearches: [
+                        ...data.val().lastSbbSearches,
+                        {from, to}
+                    ]
+                })
+            });
+
     }
 
     return (
@@ -36,7 +65,11 @@ const Sbb = () => {
                 <NavLink className="d-inline-block nav-link" to="/stationboard">Stationboard</NavLink>
                 <NavLink className="d-inline-block nav-link" to="/settings">Settings</NavLink>
             </nav>
+            {!user && <Redirect to="/login"/>}
             <Switch>
+                <Route path="/login">
+                    <SbbLogin user={user} error={() => setError(true)} success={successHandler}/>
+                </Route>
                 <Route path="/connections">
                     <Form.Group>
                         <Form.Label>Von</Form.Label>
@@ -64,6 +97,7 @@ const Sbb = () => {
                     <Alert variant="danger">Page not found</Alert>
                 </Route>
             </Switch>
+            {showingSuccess && <Alert variant="success">Success!</Alert>}
         </div>
     );
 };
