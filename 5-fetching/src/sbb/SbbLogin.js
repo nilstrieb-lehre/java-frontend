@@ -49,7 +49,7 @@ const SbbLogin = (props) => {
 
         return (
             <div>
-                {(done || props.user) && <Redirect to="/connections"/>}
+                {(done || props.user) && <Redirect to="/stationboard"/>}
                 <h2>Sign In</h2>
                 <Form.Group>
                     <Form.Label>E-Mail</Form.Label>

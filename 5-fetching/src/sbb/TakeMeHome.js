@@ -2,8 +2,8 @@ import React from 'react';
 import useLocalStation from "./useLocalStation";
 import {Alert} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
-import {Connections} from "./SBB";
 import {useSettings} from "./Settings";
+import {Connections} from "./Connections";
 
 const ignore = () => undefined;
 

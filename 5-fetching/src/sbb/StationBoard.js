@@ -1,9 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Alert, Button, Form, ListGroup} from "react-bootstrap";
-import {formatTime} from "./SBB";
+import {Alert, Button, Form, Table} from "react-bootstrap";
 import useLocalStation from "./useLocalStation";
-
-const skip = n => (_, i) => i >= n;
+import {formatTime} from "./Connections";
 
 const StationBoard = () => {
     const [stationBoard, setStationBoard] = useState(null);
@@ -29,6 +27,8 @@ const StationBoard = () => {
             })
     };
 
+    void 0;
+
     return (
         <div>
             <Form.Group>
@@ -42,42 +42,44 @@ const StationBoard = () => {
             }
             {
                 stationBoard &&
-                <ListGroup>
+                <Table>
+                    <thead>
+                    <tr>
+                        <th>Departure</th>
+                        <th>Platform</th>
+                        <th>To</th>
+                        <th>Stops</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     {stationBoard.map((station, i) =>
                         <StationBoardEntry key={i} station={station}/>
                     )}
-                </ListGroup>
+                    </tbody>
+                </Table>
             }
         </div>
     );
 };
 
 const StationBoardEntry = props => {
-    const [showStops, setShowStops] = useState(false);
-    const local = props.station.passList[0];
+    const passes = props.station.passList;
+    const local = passes[0];
 
     return (
-        <ListGroup.Item>
-            <div>
-                <b>{formatTime(local.departure)} {local.platform && <>-
-                    Gleis {local.platform}</>} - {props.station.to}</b>
-            </div>
-            <div className="cursor-pointer" onClick={() => setShowStops(show => !show)}>
-                {
-                    showStops ?
-                        <ListGroup>
-                            {props.station.passList.filter(skip(1)).map((pass, i) =>
-                                <ListGroup.Item key={i}>
-                                    {pass.station.name}
-                                </ListGroup.Item>
-                            )}
-                        </ListGroup>
-                        :
-                        <div>Show stops</div>
-                }
-            </div>
-        </ListGroup.Item>
+        <tr>
+            <td><b>{formatTime(local.departure)}</b></td>
+            <td>{local.platform}</td>
+            <td>{props.station.to}</td>
+            <td>
+                {passes.filter(secondThirdSecondLast(passes.length)).map(pass => pass.station.name).join(", ")}
+            </td>
+        </tr>
     )
 }
+
+
+const secondThirdSecondLast = size => (_, i) => i === 1 || i === 2 || i === size - 2;
+
 
 export default StationBoard;
