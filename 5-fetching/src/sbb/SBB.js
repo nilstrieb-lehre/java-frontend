@@ -19,7 +19,7 @@ const Sbb = () => {
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged(user => {
-            console.log(`auth state changed to ${user.uid}`)
+            console.log(`auth state changed to ${user?.uid}`)
             setUser(user);
 
         })
@@ -46,20 +46,26 @@ const Sbb = () => {
             </nav>
             {!user && <Redirect to="/login"/>}
             <Switch>
+                <Route exact path="/">
+                    <h1>SBB-App</h1>
+                    <p>Use the SBB-App to find your destination!</p>
+                </Route>
                 <Route path="/login">
                     <SbbLogin user={user} error={errorHandler} success={successHandler}/>
                 </Route>
                 <Route path="/connections">
                     <ConnectionsPage user={user} errorHandler={errorHandler}/>
-                    {error && <Alert variant="danger">Es ist ein Fehler aufgetreten. Versuche es erneut</Alert>}
                 </Route>
-                <Route path="/stationboard" component={StationBoard}/>
+                <Route path="/stationboard">
+                    <StationBoard user={user} error={errorHandler}/>
+                </Route>
                 <Route path="/take-me-home" component={TakeMeHome}/>
                 <Route path="/settings" component={Settings}/>
                 <Route>
                     <Alert variant="danger">Page not found</Alert>
                 </Route>
             </Switch>
+            {error && <Alert variant="danger">Es ist ein Fehler aufgetreten. Versuche es erneut</Alert>}
             {showingSuccess && <Alert variant="success">Success!</Alert>}
         </div>
     );

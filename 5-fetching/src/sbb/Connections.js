@@ -3,6 +3,8 @@ import useLocalStation from "./useLocalStation";
 import firebase from "firebase";
 import {Alert, Button, Form, ListGroup} from "react-bootstrap";
 
+const first10 = (_, i) => i < 10;
+
 const ConnectionsPage = props => {
     const [fromToInput, setFromToInput] = useState(null);
     const [lastSearches, setLastSearches] = useState([]);
@@ -21,9 +23,7 @@ const ConnectionsPage = props => {
     useEffect(() => {
         if (props.user) {
             firebase.database().ref(`users/${props.user.uid}`).get()
-                .then(data => {
-                    setLastSearches(data.val()?.lastSbbSearches.filter((_, i) => i < 10) ?? []);
-                })
+                .then(data => setLastSearches(data.val()?.lastSbbSearches?.filter(first10) ?? []))
                 .catch(props.error);
         }
     }, [props.error, props.user]);
@@ -34,10 +34,10 @@ const ConnectionsPage = props => {
         setFromToInput({from, to});
         firebase.database().ref(`users/${props.user.uid}`).get()
             .then(data => {
-                firebase.database().ref(`users/${props.user.uid}`).set({
+                firebase.database().ref(`users/${props.user.uid}`).update({
                     lastSbbSearches: [
                         {from, to},
-                        ...data.val().lastSbbSearches,
+                        ...data.val()?.lastSbbSearches ?? [],
                     ]
                 })
                     .catch(props.error);
