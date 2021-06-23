@@ -1,15 +1,14 @@
 import firebase from "firebase";
 import {Button, Form} from "react-bootstrap";
-import {useRef, useState} from "react";
-import {Redirect} from "react-router-dom";
+import {useEffect, useRef, useState} from "react";
+import {Redirect, useHistory} from "react-router-dom";
 
 
 const SbbLogin = (props) => {
         const mailRef = useRef(null);
         const passwordRef = useRef(null);
-
         const [done, setDone] = useState(false);
-
+        const history = useHistory();
 
         const login = () => {
             const mail = mailRef.current.value;
@@ -45,9 +44,14 @@ const SbbLogin = (props) => {
                 });
         }
 
+        useEffect(() => {
+            if (done || props.user) {
+                history.goBack();
+            }
+        }, [history, done, props.user])
+
         return (
             <div>
-                {(done || props.user) && <Redirect to="/"/>}
                 <h2>Sign In</h2>
                 <Form.Group>
                     <Form.Label>E-Mail</Form.Label>

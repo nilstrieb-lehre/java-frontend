@@ -69,7 +69,7 @@ const StationBoard = props => {
             <div>
                 {
                     lastStationBoards.map((search, i) =>
-                        <Button variant="secondary" key={i} onClick={() => {
+                        <Button variant="outline-dark" key={i} onClick={() => {
                             inputField.current.value = search;
                             fetchData(search);
                         }}>{search}</Button>)

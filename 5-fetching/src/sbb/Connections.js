@@ -67,7 +67,7 @@ const ConnectionsPage = props => {
                             setFromToInput({from: search.from, to: search.to})
                         }}
                         key={i}
-                        variant="secondary">
+                        variant="outline-dark">
                         {search.from} - {search.to}
                     </Button>)
             }
