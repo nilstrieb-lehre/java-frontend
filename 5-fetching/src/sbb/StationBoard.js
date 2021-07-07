@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Alert, Button, Form, Table} from "react-bootstrap";
+import {Alert, Button, Form, Spinner, Table} from "react-bootstrap";
 import firebase from "firebase";
 import useLocalStation from "./useLocalStation";
 import {formatTime} from "./Connections";
@@ -77,7 +77,7 @@ const StationBoard = props => {
             </div>
             {
                 fetching &&
-                <Alert variant="info">Fetching data...</Alert>
+                <Spinner animation={"border"}/>
             }
             {
                 stationBoard &&
@@ -99,7 +99,7 @@ const StationBoard = props => {
             }
         </div>
     );
-};
+}
 
 const StationBoardEntry = props => {
     const passes = props.station.passList;
@@ -117,8 +117,8 @@ const StationBoardEntry = props => {
     )
 }
 
-
-const secondThirdSecondLast = size => (_, i) => i === 1 || i === 2 || i === size - 2;
+const secondThirdSecondLast = size => (_, i) =>
+    i === 1 || i === 2 || i === size - 2;
 
 
 export default StationBoard;

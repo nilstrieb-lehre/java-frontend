@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState} from "react";
 import useLocalStation from "./useLocalStation";
 import firebase from "firebase";
-import {Alert, Button, Form, ListGroup} from "react-bootstrap";
+import {Button, Form, ListGroup} from "react-bootstrap";
+import GreyBoxed from "./GreyBoxed";
 
 const first10 = (_, i) => i < 10;
 
@@ -86,6 +87,10 @@ const Connections = props => {
 
     useEffect(() => {
         fetch(`http://transport.opendata.ch/v1/connections?from=${encodeURIComponent(props.from)}&to=${encodeURIComponent(props.to)}`)
+            .then(async response => {
+                await sleep(2000);
+                return response;
+            })
             .then(response => response.json())
             .then(data => setConnections(data.connections))
             .catch(props.errorHandler);
@@ -98,22 +103,38 @@ const Connections = props => {
                     <Connection key={i} connection={con}/>
                 )
                 :
-                <Alert variant="info">Fetching Connections...</Alert>
+                Array(4).fill(0)
+                    .map((_, i) =>
+                        <Connection key={i} empty/>
+                    )
             }
         </ListGroup>
     )
 }
 
+function sleep(ms) {
+    return new Promise(res => setTimeout(res, ms));
+}
+
 const Connection = props => {
     const [showSections, setShowSections] = useState(false);
     const con = props.connection;
+    const empty = props.empty;
 
     return (
         <ListGroup.Item>
-            <div>{con.from.station.name} -> {con.to.station.name}</div>
-            <div>Abfahrt: {formatTime(con.from.departure)}</div>
-            <div>Ankunft: {formatTime(con.to.arrival)}</div>
-            <div>Dauer: {formatSeconds(con.to.arrivalTimestamp - con.from.departureTimestamp)}</div>
+            <GreyBoxed width={30} deps={[con]}>
+                <div>{con?.from.station.name} -> {con?.to.station.name}</div>
+            </GreyBoxed>
+            <GreyBoxed width={10} deps={[con]}>
+                <div>Abfahrt: {formatTime(con?.from.departure)}</div>
+            </GreyBoxed>
+            <GreyBoxed width={10} deps={[con]}>
+                <div>Ankunft: {formatTime(con?.to.arrival)}</div>
+            </GreyBoxed>
+            <GreyBoxed width={10} deps={[con]}>
+                <div>Dauer: {formatSeconds(con?.to.arrivalTimestamp - con?.from.departureTimestamp)}</div>
+            </GreyBoxed>
 
             {showSections &&
             <div>
@@ -126,7 +147,7 @@ const Connection = props => {
             </div>}
 
             <Button
-                onClick={() => setShowSections(s => !s)}
+                onClick={() => empty || setShowSections(s => !s)}
                 variant={showSections ? "primary" : "secondary"}
             >
                 {showSections ? "Abschnitte Verstecken" : "Abschnitte Anzeigen"}
@@ -211,5 +232,9 @@ function formatSeconds(seconds) {
     return `${hours}:${minutes.toString().padStart(2, '0')}h`
 }
 
-export {Connections, formatTime};
+export
+{
+    Connections, formatTime
+}
+    ;
 export default ConnectionsPage;

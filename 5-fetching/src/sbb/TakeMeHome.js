@@ -1,6 +1,6 @@
 import React from 'react';
 import useLocalStation from "./useLocalStation";
-import {Alert} from "react-bootstrap";
+import {Alert, Spinner} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {useSettings} from "./Settings";
 import {Connections} from "./Connections";
@@ -20,7 +20,10 @@ const TakeMeHome = () => {
                         <Connections from={location.name} to={home} setError={ignore}/>
                     </>
                     :
-                    <Alert variant="info">Fetching location info...</Alert>
+                    <>
+                        <Spinner animation="border"/>
+                        Fetching location info...
+                    </>
                 :
                 <Alert variant="warning">Home not set in <NavLink to="/settings">settings</NavLink>.</Alert>
             }
