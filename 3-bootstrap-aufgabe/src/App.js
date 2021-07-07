@@ -1,10 +1,10 @@
-import BMI from "./BMI";
 import {Container} from "react-bootstrap";
+import ModalShowcase from "./components/ModalShowcase";
 
 function App() {
     return (
         <Container>
-            <BMI/>
+            <ModalShowcase/>
         </Container>
     );
 }

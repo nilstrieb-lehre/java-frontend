@@ -14,7 +14,7 @@ function App() {
                     </Row>
                     <Row>
                         <h1>Stars</h1>
-                        <Stars length={5} checked={4} onChange={v => console.log(v)}/>
+                        <Stars length={10000} checked={4} onChange={v => console.log(v)}/>
                     </Row>
                 </Col>
             </Container>
