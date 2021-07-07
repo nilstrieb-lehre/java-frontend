@@ -87,10 +87,6 @@ const Connections = props => {
 
     useEffect(() => {
         fetch(`http://transport.opendata.ch/v1/connections?from=${encodeURIComponent(props.from)}&to=${encodeURIComponent(props.to)}`)
-            .then(async response => {
-                await sleep(2000);
-                return response;
-            })
             .then(response => response.json())
             .then(data => setConnections(data.connections))
             .catch(props.errorHandler);
@@ -110,10 +106,6 @@ const Connections = props => {
             }
         </ListGroup>
     )
-}
-
-function sleep(ms) {
-    return new Promise(res => setTimeout(res, ms));
 }
 
 const Connection = props => {
@@ -232,9 +224,5 @@ function formatSeconds(seconds) {
     return `${hours}:${minutes.toString().padStart(2, '0')}h`
 }
 
-export
-{
-    Connections, formatTime
-}
-    ;
+export {Connections, formatTime};
 export default ConnectionsPage;

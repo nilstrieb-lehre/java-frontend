@@ -118,7 +118,7 @@ const StationBoardEntry = props => {
 }
 
 const secondThirdSecondLast = size => (_, i) =>
-    i === 1 || i === 2 || i === size - 2;
+    i === 1 || i === 2 || (i === size - 2 && size > 2);
 
 
 export default StationBoard;
