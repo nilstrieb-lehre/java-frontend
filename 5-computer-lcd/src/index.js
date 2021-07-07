@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Team from './Team';
 import "bootstrap/dist/css/bootstrap.min.css";
+import Computer from "./Computer";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Team />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Computer/>
+    </React.StrictMode>,
+    document.getElementById('root')
 );

@@ -1,0 +1,46 @@
+{
+  "lcd": {
+    "display": "LCD Bildschirme",
+    "data": [
+      {
+        "name": "SamsungMonitor C27H800FCUX",
+        "description": "Gekrümmtes 27\"-Display (1800R) mit einer Auflösung von 1920 x 1080 px (entspiegelt)",
+        "purchasingPrice": "275",
+        "price": "349",
+        "image": "https://cdn.competec.ch/images/5/7/577902/null-H-002.xxl3.jpg"
+      },
+      {
+        "name": "Acer Monitor S277 Zeroframe",
+        "description": "UHD-Auflösung, 3840 x 2160 Pixel IPS-LED-Panel",
+        "purchasingPrice": "470",
+        "price": "599",
+        "image": "https://cdn.competec.ch/images/3/2/325854/acer-s277-27-ips-led-4k2k-zeroframe-001.xxl3.jpg"
+      }
+    ]
+  },
+  "laptop": {
+    "display": "Laptop",
+    "data": [
+      {
+        "name": "Microsoft Surface Go 64GB (Business)",
+        "category": "laptop",
+        "description": "Intel Pentium Gold 4415Y Prozessor mit 1,6 GHz, 4 GB RAM und 64 GB eMMC-Speicher",
+        "purchasingPrice": "420",
+        "price": "549",
+        "image": "https://cdn.competec.ch/images/7/9/799507/Microsoft-Surface-Go-64GB-H-003.xxl3.jpg"
+      },
+      {
+        "name": "Lenovo Notebook Yoga 530-14",
+        "category": "laptop",
+        "description": "Intel Core i5-8250U Quad-Core-Prozessor mit 1,6 bis 3,4 GHz",
+        "purchasingPrice": "735",
+        "price": "849",
+        "image": "https://cdn.competec.ch/images/7/9/798850/null-H-002.xxl3.jpg"
+      }
+    ]
+  },
+  "computer": {
+    "display": "Computer",
+    "data": []
+  }
+}
