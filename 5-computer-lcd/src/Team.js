@@ -10,13 +10,13 @@ const people = [
 const teams = ["Team React", "Team Serenity", "Team Actix"];
 
 const Team = () => {
-    const [selectedTeam, setSelectedTeam] = useState(null);
+    const [selectedTeamIdx, setSelectedTeam] = useState(null);
     const [selectedPerson, setSelectedPerson] = useState(null);
 
     const selectTeam = i => () => {
         setSelectedTeam(i);
         setSelectedPerson(null);
-    }
+    };
 
     const selectPerson = i => () => setSelectedPerson(i);
 
@@ -35,28 +35,28 @@ const Team = () => {
                 </Dropdown>
             </Row>
             <Row>
-                {selectedTeam !== null &&
+                {selectedTeamIdx !== null &&
                 <Col>
-                    <Row><h3>{teams[selectedTeam]}</h3></Row>
+                    <Row><h3>{teams[selectedTeamIdx]}</h3></Row>
                     <Row>
                         <Dropdown>
                             <Dropdown.Toggle>
                                 Bitte eine Auswahl treffen
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                {people[selectedTeam].map((name, i) => <Dropdown.Item as="button"
-                                                                                   key={name}
-                                                                                   onClick={selectPerson(i)}>{name}</Dropdown.Item>)}
+                                {people[selectedTeamIdx].map((name, i) =>
+                                    <Dropdown.Item as="button" key={name}
+                                                   onClick={selectPerson(people[selectedTeamIdx][i])}>{name}</Dropdown.Item>)}
                             </Dropdown.Menu>
                         </Dropdown>
                     </Row>
                 </Col>
                 }
                 {selectedPerson &&
-                <Alert variant="secondary">Person: {people[selectedTeam][selectedPerson]}</Alert>}
+                <Alert variant="secondary">Person: {selectedPerson}</Alert>}
             </Row>
         </Container>
-    )
+    );
 }
 
 export default Team;

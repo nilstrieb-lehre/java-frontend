@@ -23,7 +23,6 @@
     "data": [
       {
         "name": "Microsoft Surface Go 64GB (Business)",
-        "category": "laptop",
         "description": "Intel Pentium Gold 4415Y Prozessor mit 1,6 GHz, 4 GB RAM und 64 GB eMMC-Speicher",
         "purchasingPrice": "420",
         "price": "549",
@@ -31,7 +30,6 @@
       },
       {
         "name": "Lenovo Notebook Yoga 530-14",
-        "category": "laptop",
         "description": "Intel Core i5-8250U Quad-Core-Prozessor mit 1,6 bis 3,4 GHz",
         "purchasingPrice": "735",
         "price": "849",
@@ -41,6 +39,21 @@
   },
   "computer": {
     "display": "Computer",
-    "data": []
+    "data": [
+      {
+        "name": "Computer",
+        "description": "Computer",
+        "purchasingPrice": "3200",
+        "price": "-",
+        "image": "https://cdn.discordapp.com/attachments/678205626987577344/787056566184181820/PXL_20201211_204124507.jpg"
+      },
+      {
+        "name": "meme",
+        "description": "kein computer",
+        "purchasingPrice": "0",
+        "price": "100",
+        "image": "https://cdn.discordapp.com/attachments/753159354378879056/862193636719984661/RDT_20210707_0646576469843956911286323.jpg"
+      }
+    ]
   }
 }
