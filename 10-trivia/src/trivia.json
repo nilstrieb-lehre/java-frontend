@@ -2,185 +2,161 @@
   "Programming Languages": [
     {
       "question": "Who is not a creator of a major programming language?",
-      "incorrectAnswers": [
+      "correct": "Timo Nicolas Angst",
+      "incorrect": [
         "Bjarne Stroustrup",
         "Brendan Eich",
         "Dennis Ritchie"
-      ],
-      "correctAnswer": "Timo Nicolas Angst",
-      "answers": [
-        "Bjarne Stroustrup",
-        "Brendan Eich",
-        "Timo Nicolas Angst",
-        "Dennis Ritchie"
-      ],
-      "correct": 2
+      ]
     },
     {
       "question": "Which programming language is the oldest of these?",
-      "answers": [
-        "Python",
+      "correct": "Python",
+      "incorrect": [
         "Java",
         "Go",
         "Typescript"
-      ],
-      "correct": 0
+      ]
     },
     {
       "question": "What is not a reserved keyword in Java 16?",
-      "answers": [
+      "correct": "let",
+      "incorrect": [
         "var",
         "_",
-        "goto",
-        "let"
-      ],
-      "correct": 3
+        "goto"
+      ]
     },
     {
       "question": "Which programming language is purely functional?",
-      "answers": [
+      "correct": "Haskell",
+      "incorrect": [
         "Javascript",
-        "Haskell",
         "F#",
         "Rust"
-      ],
-      "correct": 1
+      ]
     },
     {
       "question": "Haskell does not have",
-      "answers": [
+      "correct": "Dependant Types",
+      "incorrect": [
         "First-class Functions",
         "Higher Kinded Types",
-        "Dependant Types",
         "Capabilities to do IO"
-      ],
-      "correct": 2
+      ]
     },
     {
       "question": "Where was C created?",
-      "answers": [
-        "Bell Labs",
+      "correct": "Bell Labs",
+      "incorrect": [
         "University of Southampton",
         "Zürich"
-      ],
-      "correct": 0
+      ]
     },
     {
       "question": "CSS stands for",
-      "answers": [
+      "correct": "Cascading Style Sheets",
+      "incorrect": [
         "Cross Site Scripting",
-        "C-Sharp Sucks",
-        "Cascading Style Sheets"
-      ],
-      "correct": 2
+        "C-Sharp Sucks"
+      ]
     },
     {
       "question": "Javascript is standardized as",
-      "answers": [
-        "ECMAScript",
+      "correct": "ECMAScript",
+      "incorrect": [
         "ISOScript",
         "ANSIScript",
         "JSScript"
-      ],
-      "correct": 0
+      ]
     },
     {
       "question": "The Rust programming language promises",
-      "answers": [
+      "correct": "Fearless Concurrency",
+      "incorrect": [
         "Undefined Behaviour",
-        "An easy learning experience",
-        "Fearless Concurrency"
-      ],
-      "correct": 2
+        "An easy learning experience"
+      ]
     },
     {
       "question": "What is WebAssembly?",
-      "answers": [
+      "correct": "A compilation target language run in the browser",
+      "incorrect": [
         "Machine code distributed over the web",
-        "Fast Javascript",
-        "A compilation target language run in the browser"
-      ],
-      "correct": 2
+        "Fast Javascript"
+      ]
     },
     {
       "question": "Which language is used for Microsoft Office Macros?",
-      "answers": [
+      "correct": "VBA",
+      "incorrect": [
         "Coffeescript",
-        "VBA",
         "Brainfuck",
         "Whitespace"
-      ],
-      "correct": 1
+      ]
     },
     {
       "question": "What is the most popular esoteric programming language?",
-      "answers": [
+      "correct": "Brainfuck",
+      "incorrect": [
         "Befunge",
-        "Brainfuck",
         "Whitespace"
-      ],
-      "correct": 1
+      ]
     },
     {
       "question": "Which of these programming languages is multi-paradigm?",
-      "answers": [
-        "Javascript",
+      "correct": "Javascript",
+      "incorrect": [
         "Idris",
         "SQL",
         "Haskell"
-      ],
-      "correct": 0
+      ]
     }
   ],
   "AXA ITS 2020": [
     {
       "question": "Wer macht am liebsten Pausen?",
-      "answers": [
+      "correct": "Martin",
+      "incorrect": [
         "Timo",
-        "Kai",
-        "Martin"
-      ],
-      "correct": 2
+        "Kai"
+      ]
     },
     {
       "question": "Wer würde (rein hypothetisch) am ehesten für Java Swing krank sein?",
-      "answers": [
-        "Corsin",
+      "correct": "Corsin",
+      "incorrect": [
         "Noel",
         "Desirée"
-      ],
-      "correct": 0
+      ]
     },
     {
       "question": "Was ist Cyrills Spezialfähigkeit in Flappy Stift?",
-      "answers": [
-        "Whiskey-Cyrill",
+      "correct": "Whiskey-Cyrill",
+      "incorrect": [
         "Stift Entlassen",
         "Browser Crashen"
-      ],
-      "correct": 0
+      ]
     },
     {
       "question": "Wer kommt oft pünktlich 2 Minuten zu spät?",
-      "answers": [
+      "correct": "Alex",
+      "incorrect": [
         "Rolf",
-        "Alex",
         "Oliver",
         "Nils"
-      ],
-      "correct": 1
+      ]
     }
   ],
   "Gaming": [
     {
       "question": "How is killing the entire enemy team at the same time called in Overwatch?",
-      "answers": [
+      "correct": "Team Kill",
+      "incorrect": [
         "Ace",
         "Joker",
-        "Team Kill",
         "Total Destruction"
-      ],
-      "correct": 2
+      ]
     }
   ]
 }
