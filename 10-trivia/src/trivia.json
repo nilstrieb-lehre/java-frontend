@@ -1,0 +1,53 @@
+{
+  "Programming Languages": [
+    {
+      "question": "Who is not a creator of a major programming language?",
+      "answers": [
+        "Bjarne Stroustrup",
+        "Brendan Eich",
+        "Timo Nicolas Angst",
+        "Dennis Ritchie"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Which programming language is the oldest of these?",
+      "answers": [
+        "Python",
+        "Java",
+        "Go",
+        "Typescript"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "What is not a reserved keyword in Java 16?",
+      "answers": [
+        "var",
+        "_",
+        "goto",
+        "let"
+      ],
+      "correct": 3
+    },
+    {
+      "question": "Which programming language is purely functional?",
+      "answers": [
+        "Javascript",
+        "Haskell",
+        "F#",
+        "Rust"
+      ],
+      "correct": 1
+    }
+  ],
+  "Test": [
+    {
+      "question": "What letter comes after A in the alphabet",
+      "answers": [
+        "B"
+      ],
+      "correct": 0
+    }
+  ]
+}
