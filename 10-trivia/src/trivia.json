@@ -2,6 +2,12 @@
   "Programming Languages": [
     {
       "question": "Who is not a creator of a major programming language?",
+      "incorrectAnswers": [
+        "Bjarne Stroustrup",
+        "Brendan Eich",
+        "Dennis Ritchie"
+      ],
+      "correctAnswer": "Timo Nicolas Angst",
       "answers": [
         "Bjarne Stroustrup",
         "Brendan Eich",
@@ -41,7 +47,7 @@
       "correct": 1
     },
     {
-      "question": "Haskell does not have ___",
+      "question": "Haskell does not have",
       "answers": [
         "First-class Functions",
         "Higher Kinded Types",
@@ -85,7 +91,45 @@
         "An easy learning experience",
         "Fearless Concurrency"
       ],
+      "correct": 2
+    },
+    {
+      "question": "What is WebAssembly?",
+      "answers": [
+        "Machine code distributed over the web",
+        "Fast Javascript",
+        "A compilation target language run in the browser"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Which language is used for Microsoft Office Macros?",
+      "answers": [
+        "Coffeescript",
+        "VBA",
+        "Brainfuck",
+        "Whitespace"
+      ],
       "correct": 1
+    },
+    {
+      "question": "What is the most popular esoteric programming language?",
+      "answers": [
+        "Befunge",
+        "Brainfuck",
+        "Whitespace"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Which of these programming languages is multi-paradigm?",
+      "answers": [
+        "Javascript",
+        "Idris",
+        "SQL",
+        "Haskell"
+      ],
+      "correct": 0
     }
   ],
   "AXA ITS 2020": [
@@ -127,13 +171,16 @@
       "correct": 1
     }
   ],
-  "Test": [
+  "Gaming": [
     {
-      "question": "What letter comes after A in the alphabet",
+      "question": "How is killing the entire enemy team at the same time called in Overwatch?",
       "answers": [
-        "B"
+        "Ace",
+        "Joker",
+        "Team Kill",
+        "Total Destruction"
       ],
-      "correct": 0
+      "correct": 2
     }
   ]
 }
