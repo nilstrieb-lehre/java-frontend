@@ -7,6 +7,7 @@ const INCORRECT = -1;
 
 const TriviaGame = ({category}) => {
     const [points, setPoints] = useState(0);
+    const [mistakes, setMistakes] = useState(0);
     const [question, setQuestion] = useState(getRandomQuestion(category));
     const [result, setResult] = useState(0);
 
@@ -16,8 +17,10 @@ const TriviaGame = ({category}) => {
     }, [category]);
 
     const incorrectHandler = () => {
-        if (!result)
+        if (!result) {
             setResult(INCORRECT);
+            setMistakes(m => m + 1);
+        }
     }
 
     const correctHandler = () => {
@@ -36,14 +39,14 @@ const TriviaGame = ({category}) => {
 
     return (
         <div>
-            <div>Points: {points}</div>
+            <div>Points: {points} ({Math.round(points / ((points + mistakes || 1)) * 100)}%)</div>
             {question && <Question question={question} correctHandler={correctHandler}
                                    incorrectHandler={incorrectHandler}/>}
             <Button onClick={nextHandler}>Next</Button>
             {
                 (result === INCORRECT ?
-                <Alert variant="danger">Wrong. Correct was: {question.answers[question.correct]}</Alert>
-                : result === CORRECT && <Alert variant="success">Correct.</Alert>)
+                    <Alert variant="danger">Wrong. Correct was: {question.answers[question.correct]}</Alert>
+                    : result === CORRECT && <Alert variant="success">Correct.</Alert>)
             }
         </div>
     );
@@ -71,7 +74,19 @@ const Question = ({question, correctHandler, incorrectHandler}) => {
 
 function getRandomQuestion(category) {
     const randomIndex = Math.floor(Math.random() * questions[category].length);
-    return questions[category][randomIndex];
+    return shuffleAnswers(questions[category][randomIndex]);
+}
+
+function shuffleAnswers(question) {
+    const randomIndex = Math.floor(Math.random() * question.incorrect.length + 1);
+    const answers = [...question.incorrect];
+    answers.splice(randomIndex, 0, question.correct);
+
+    return {
+        question: question.question,
+        answers,
+        correct: randomIndex
+    }
 }
 
 export default TriviaGame;

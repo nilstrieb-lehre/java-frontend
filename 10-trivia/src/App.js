@@ -14,7 +14,7 @@ const App = () => {
                 <Dropdown>
                     <Dropdown.Toggle>{category}</Dropdown.Toggle>
                     <Dropdown.Menu>
-                        {Object.keys(questions).map(name => <Dropdown.Item
+                        {Object.keys(questions).map(name => <Dropdown.Item key={name}
                             onClick={() => setCategory(name)}>{name}</Dropdown.Item>)}
                     </Dropdown.Menu>
                 </Dropdown>
