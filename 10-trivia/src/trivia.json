@@ -39,6 +39,92 @@
         "Rust"
       ],
       "correct": 1
+    },
+    {
+      "question": "Haskell does not have ___",
+      "answers": [
+        "First-class Functions",
+        "Higher Kinded Types",
+        "Dependant Types",
+        "Capabilities to do IO"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Where was C created?",
+      "answers": [
+        "Bell Labs",
+        "University of Southampton",
+        "Zürich"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "CSS stands for",
+      "answers": [
+        "Cross Site Scripting",
+        "C-Sharp Sucks",
+        "Cascading Style Sheets"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Javascript is standardized as",
+      "answers": [
+        "ECMAScript",
+        "ISOScript",
+        "ANSIScript",
+        "JSScript"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "The Rust programming language promises",
+      "answers": [
+        "Undefined Behaviour",
+        "An easy learning experience",
+        "Fearless Concurrency"
+      ],
+      "correct": 1
+    }
+  ],
+  "AXA ITS 2020": [
+    {
+      "question": "Wer macht am liebsten Pausen?",
+      "answers": [
+        "Timo",
+        "Kai",
+        "Martin"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Wer würde (rein hypothetisch) am ehesten für Java Swing krank sein?",
+      "answers": [
+        "Corsin",
+        "Noel",
+        "Desirée"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "Was ist Cyrills Spezialfähigkeit in Flappy Stift?",
+      "answers": [
+        "Whiskey-Cyrill",
+        "Stift Entlassen",
+        "Browser Crashen"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "Wer kommt oft pünktlich 2 Minuten zu spät?",
+      "answers": [
+        "Rolf",
+        "Alex",
+        "Oliver",
+        "Nils"
+      ],
+      "correct": 1
     }
   ],
   "Test": [
