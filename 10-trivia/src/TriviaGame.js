@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Alert, Button, Container} from "react-bootstrap";
+import {Alert, Button, ButtonGroup, Container} from "react-bootstrap";
 import questions from "./trivia.json";
 
 const CORRECT = 1;
@@ -39,9 +39,10 @@ const TriviaGame = ({category}) => {
 
     return (
         <div>
-            <div>Points: {points} ({Math.round(points / ((points + mistakes || 1)) * 100)}%)</div>
-            {question && <Question question={question} correctHandler={correctHandler}
-                                   incorrectHandler={incorrectHandler}/>}
+            <h4>Points: {points} ({Math.round(points / ((points + mistakes || 1)) * 100)}%)</h4>
+
+                {question && <Question question={question} correctHandler={correctHandler}
+                                       incorrectHandler={incorrectHandler}/>}
             <Button onClick={nextHandler}>Next</Button>
             {
                 (result === INCORRECT ?
