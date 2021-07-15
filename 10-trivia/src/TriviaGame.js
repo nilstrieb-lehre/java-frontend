@@ -1,19 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import {Alert, Button, ButtonGroup, Container} from "react-bootstrap";
+import {Alert, Button, Container} from "react-bootstrap";
 import questions from "./trivia.json";
 
-const CORRECT = 1;
+// Result states
 const INCORRECT = -1;
+const NONE = 0;
+const CORRECT = 1;
 
 const TriviaGame = ({category}) => {
     const [points, setPoints] = useState(0);
     const [mistakes, setMistakes] = useState(0);
     const [question, setQuestion] = useState(getRandomQuestion(category));
-    const [result, setResult] = useState(0);
+    const [result, setResult] = useState(NONE);
 
     useEffect(() => {
         setQuestion(getRandomQuestion(category));
-        setResult(0);
+        setResult(NONE);
     }, [category]);
 
     const incorrectHandler = () => {
@@ -33,7 +35,7 @@ const TriviaGame = ({category}) => {
     const nextHandler = () => {
         if (result) {
             setQuestion(getRandomQuestion(category));
-            setResult(0);
+            setResult(NONE);
         }
     }
 
