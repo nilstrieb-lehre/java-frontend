@@ -27,8 +27,8 @@ const TriviaGame = ({category}) => {
 
     const correctHandler = () => {
         if (!result) {
-            setPoints(p => p + 1);
             setResult(CORRECT);
+            setPoints(p => p + 1);
         }
     }
 
